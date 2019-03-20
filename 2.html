@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>train</title>
+		<style>
+			#key{
+				height: 40px;
+				width: 180px;
+			}
+			fieldset{
+				height: 300px;
+				width: 400px;
+			}
+			#add{
+				height: 40px;
+				width: 150px;
+			}
+			#data{
+				
+				float: left;
+				margin-left: 10px;
+			}
+			#clear{
+				float: right;
+			}
+			#hezi{
+				width: 360px;
+				height: 200px;
+				float: left;
+			}
+			mark{
+				background-color:#DDDDDD;
+			}
+			
+		</style>
+		<script>
+            var add = document.getElementById('add');
+            var timestamp = Date.parse(new Date());
+            function tianjia(){
+            	var key = document.getElementById('key');
+            	var data = document.getElementById('data');
+                localStorage.setItem(timestamp,key.value);
+                var get = localStorage.getItem(timestamp);
+                data.innerHTML ="<mark>"+get+"</mark>"+"&nbsp;&nbsp;&nbsp;"+data.innerHTML;
+            }
+
+            function shanchu(){
+            	var clear = document.getElementById('clear');
+                if(window.confirm("是否清除全部数据")){
+                    localStorage.clear();
+                    data.innerHTML = null;
+                }
+            }
+		</script>
+	</head>
+	<body>
+		<fieldset>
+			<input type="text" id="key" placeholder="请输入想要查找的商品">
+			<button id="add" onclick="tianjia()">搜索</button>
+			<br>
+			最近搜索
+			<div id="hezi">
+			    <p id="data"></p>
+			</div>
+			<button id="clear" onclick="shanchu()">X</button>
+		</fieldset>
+
+	</body>
+</html>
