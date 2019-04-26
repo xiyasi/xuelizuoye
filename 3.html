@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <div class="award"></div>
+   <canvas class="canvas"></canvas>
+</body>
+<script>
+    var bodystyle = document.body.style;  
+    bodystyle.mozUserSelect = "none";     
+    bodystyle.webkitUserSelect = "none";
+    var img = new Image();
+    img.src = 'images/cat.jpg';
+    var canvas = document.querySelector('canvas');
+    var num = Math.floor(Math.random()*2);
+    img.addEventListener('load',function(e){
+        var context;
+        var w = img.width,
+            h = img.height;        
+        var offsetX = canvas.offsetLeft,
+            offsetY = canvas.offsetTop;
+        var mouseDown = false;
+
+        function layer(context){
+            context.fillStyle = "#DDDDDD";
+            context.fillRect(0,0,w,h)
+        }
+        function eventDown(e){
+            e.preventDefault();
+            mouseDown = true;
+        }
+        function eventUp(e){
+            e.preventDefault();
+            mousedown = false;
+            var data=context.getImageData(0,0,w,h).data;
+            for(var i=0,j=0;i<data.length;i+=4){
+                if(data[i] && data[i+1] && data[i+2] && data[i+3]){
+                    j++;
+                }
+            }
+            if(j<=w*h*0.15){
+                context.clearRect(0,0,w,h);
+            }
+        }
+        function eventMove(e){
+            e.preventDefault();
+            if(mouseDown){      
+                var x =  e.pageX -offsetX;
+                var y =  e.pageY - offsetY;
+                with(context) {
+                    beginPath();
+                    arc(x,y,10,0,Math.PI *2);
+                    fill();
+                }
+            }
+        }
+
+        canvas.width = w;
+        canvas.height = h;
+        canvas.style.backgroundImage = 'url(' + img.src + ')';
+        context = canvas.getContext('2d');
+        context.fillRect(0,0,w,h);
+        layer(context);
+        context.globalCompositeOperation = 'destination-out';
+        canvas.addEventListener('touchstart',eventDown);
+        canvas.addEventListener('touchend',eventUp);
+        canvas.addEventListener('touchmove',eventMove);
+        canvas.addEventListener('mousedown',eventDown);
+        canvas.addEventListener('mouseup',eventUp);
+        canvas.addEventListener('mousemove',eventMove);
+  
+    },false)
+
+</script>
+</html>
