@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+	<title>英华逸游</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.js"></script>    
+	<script src="js/bootstrap.min.js"></script> 
+    <style>
+        ul li{
+			list-style: none;
+		}
+		*{
+            padding:0;
+            margin:0;
+            border:none;
+        }
+        @media screen and (min-width:630px){
+            #tow{
+                display: none;
+            }
+        #haed{
+            height: 55px;
+        }
+        nav{
+            position: relative;
+            height: 55px;
+        }
+        [class $="-2"]{
+            padding-top: 20px;
+            height: 55px;
+            font-size: 15px;
+            text-align:center;
+        }
+        [class $="-2"]:hover {
+            border-bottom:4px brown solid;
+            color: brown;
+        }
+        #banner{
+            width: 100%;
+            height: 446px;
+            position: relative;
+            overflow: hidden;
+        }
+        .img{
+            width:100%;
+            height: 446px;
+            top: 0;
+            left: 0;
+            position:absolute;
+        }
+        .img li{
+            float: left;
+        }
+        .btn{
+            display: none;
+        }
+        .btn span{
+            display: block;
+            width: 50px;
+            height: 100px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            font-size: 40px;
+            line-height: 100px;
+            text-align: center;
+            cursor:pointer;
+        }
+        .btn .prev{
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -50px;
+        }
+        .btn .next{
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -50px;
+        }
+        .hide{
+            display: none;
+        }
+        .ban1{
+            width: 1263px;
+            height: 446px;
+        }
+        .wenzi{
+            position:absolute;
+            color: #fff;
+            margin-top: 30px;
+            margin-left: 150px;
+        }
+        [class ^="sea"]{
+            float: left;
+            padding-left: 15px;
+            height: 37px;
+        }
+        .sousuo{
+            position:absolute;
+            background-color: #fff;
+            margin-top: 350px;
+            margin-left: 430px;
+            width: 388px;
+            height: 41px;
+            color: darkgrey;
+            border: 2px solid rgb(78, 73, 74);
+            border-radius: 10px;
+            flex-shrink: 1;
+        }
+        [class $="-1"]{
+            padding-top: 8px;
+        }
+        [class $="-4"]{
+            padding-top: 6px;
+        }
+        .sear-4{
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        #div3{
+            position: relative;
+            color: #fff;
+            display: flex;
+            flex-basis: auto;
+            flex-shrink: 1;
+        }
+        .div31{
+            width: 897px; 
+            height: 380px;
+            margin-top: 10px;
+            flex-basis: auto;
+        }
+        .div32{
+            float: right;
+            height: 380px;
+            width: 243px;
+            background-color: blue;
+            margin-top: 10px;
+            padding-left: 70px;
+            padding-top: 100px;
+            flex-basis: auto;
+        }
+        .div33{
+            position: absolute;
+            margin-top: 20px;
+            margin-left: 550px;
+        }
+        .div34{
+            border: 2px solid white;
+            border-radius: 10px;
+            width: 110px;
+            height: 35px;
+            padding-left: 25px;
+            padding-top: 5px;
+            margin-top: 20px;
+        }
+        #div4{
+            text-align:center;
+        }
+        #div5{
+            flex-direction: row;
+            justify-content:center;
+            align-items: stretch;
+            display: flex;
+            flex-grow: 1;
+            position: relative;
+            text-align:center;
+        }
+        .div51{
+            flex-direction: column;
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+            width: 50%;
+            float: left;
+        }
+        .div52{
+            flex-direction: column;
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 1;
+            width: 50%;
+            float: right;
+        }
+        .div53{
+            background-color: black;
+            color: #fff;
+            height: 76px;
+            padding-top: 5px;
+            padding-left: 30px;
+        }
+        .div54{
+            position: absolute;
+            color: #fff;
+            background-color: rgba(36, 36, 39, 0.7);
+            width: 570px;
+            margin-top: 193px;
+            padding-top: 5px;
+            padding-left: 30px;
+        }
+        #div6{
+            text-align:center;
+        }
+        #div7{
+            text-align:center;
+            flex-direction: row;
+            position: relative;
+        }
+        .d71{
+            float: left;
+            width: 33.3%;
+            background-size:100% auto;
+            overflow:hidden;
+        }
+        .d72{
+            position: absolute;
+            color: #fff;
+            background-color: rgba(36, 36, 39, 0.7);
+            width: 380px;
+            background-size:100% auto;
+            overflow:hidden;
+        }
+        #div8{
+            text-align:center;
+            display:flex; 
+            justify-content:center;
+            align-items:center
+        }
+        .d81{
+            border: 2px solid rgb(19, 16, 16);
+            border-radius: 10px;
+            width: 200px;
+            height: 50px;
+            padding-top: 12px;
+        }
+        #div9{
+            width: 100%;
+            overflow:hidden;
+            padding: 0px;
+        }
+        #div10{
+            position: relative;
+            width: 100%;
+            overflow:hidden;
+            padding: 0px;
+            text-align:center;
+        }
+        #div11{
+            color: #fff;
+            text-align:center;
+            overflow:hidden;
+            padding-right: 0px;
+        }
+        .d101{
+            width: 100%;
+            text-align:center; 
+            position: absolute;
+            margin-top: 100px;
+        }
+        .d111{
+            flex-direction: row;
+            text-align:center;
+        }
+        .d112{
+            background-color: blue;
+            height: 408.2px;
+            float: right;
+            width: 50%;
+            text-align:center;
+        }
+        .d113{
+            margin-top: 100px;
+        }
+        .d114{
+            background-color: blue;
+            width: 100%;
+            text-align:center;
+            position: relative;
+        }
+        .d115{
+            float: left;
+            background-color: blue;
+            width: 33.3%;
+            position: relative;
+        }
+        .d117{
+            position: absolute;
+            left: 160px;
+            margin-top: 70px;
+        }
+        #div12{
+            background-color: black;
+            color: #fff;
+            width: 100%;
+            height: 480px;
+            padding-top: 50px;
+            padding-left: 60px;
+        }
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="container">
+        <ul class="head">
+            <li class="col-xs-3"><img src="img/logo.png" alt=""></li>
+            <li class="col-xs-2">首页</li>
+            <li class="col-xs-2">热门路线</li>
+            <li class="col-xs-2">签证推荐</li>
+            <li class="col-xs-2">使命愿景</li>
+        </ul>
+    </nav>
+    <div id="banner" class="container">
+        <ul class="img">
+            <li><img src="img/banner.jpg" alt="" class="ban1"></li>
+            <li><img src="img/banner2.jpg" alt="" class="ban1"></li>
+        </ul>
+        <div class="btn">
+            <span class="prev"><</span>
+            <span class="next">></span>
+        </div>
+        <div class="wenzi">
+            <h1>悠游古欧州&nbsp;&nbsp;遍览德法瑞意</h1>
+            <p>————————————————</p>
+            <p>巴黎卢浮宫、塞纳河游船、凡尔赛宫</p>
+            <p>少女峰、大运河游船、金色列车、西庸城堡</p>
+            <p>————————————————————</p>
+        </div>
+        <div class="sousuo">
+            <ul>
+                <li class="sear-1"  style="background-color:  rgb(206, 201, 201); width: 33px; 
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;">
+                    <img src="img/position.png" alt="">
+                </li>
+                <li class="sear-1" style="background-color: rgb(206, 201, 201); width: 66px;">
+                    <p style="color: gray">目的地</p>
+                </li>
+                <li class="sear-1" style="width: 196px;">
+                    <p>&nbsp;&nbsp;|&nbsp;&nbsp;日本&nbsp;&nbsp;美国&nbsp;&nbsp;英国&nbsp;&nbsp;地中海</p>
+                </li>
+                <li style="background-color: chocolate; width: 89px;" class="sear-4">
+                    <img src="img/search.png" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="div3" class="container">
+        <div class="div33">
+            <h1>机场接送省钱省心</h1>
+            <p>提供上海、苏州、无锡等市</p>
+            <p>往返机场、码头接送服务、更有包车服务</p>
+        </div>
+        <img src="img/Sbanner2.jpg" alt="" class="div31">
+        
+        <div class="div32">
+            <img src="img/car.png" alt="">
+            <h3>车辆接送</h3>
+            <div class="div34">查看详情</div>
+        </div>
+    </div>
+    <div id="div4" class="container">
+        <h3 style="text-align:center;">热&nbsp;&nbsp;门&nbsp;&nbsp;线&nbsp;&nbsp;路</h3>
+        <p style="text-align:center;">Popular&nbsp;tourist&nbsp;routes</p>
+    </div>
+    <div id="div5" class="container">
+        <div class="div51">
+            <div>
+                <img src="img/hot1.jpg" alt="" style="width: 570px;" >
+                <div class="div53">
+                    <p>海南三亚五天四晚，纯玩，4晚红树林度假王国</p>
+                    <p>$<span style="font-size: 25px;">2580</span>/人起</p>
+                </div>
+            </div>
+            <div>
+                <img src="img/hot2.jpg" alt="" style="width: 570px;" >
+                <div class="div53">
+                    <p>德法意瑞欧洲四国，ABCD任意路线有您挑选</p>
+                    <p>$<span style="font-size: 25px;">7999</span>/人起</p>
+                </div>
+            </div>
+        </div>
+        <div class="div52">
+            <div>
+                <div class="div54">
+                    <p>曼谷加那提亚，国际5星，赠送2220大礼包，决无自费</p>
+                    <p>$<span style="font-size: 25px;">2799</span>/人起</p>
+                </div>
+                <img src="img/hot3.jpg" alt="" style="width: 570px;" class="div55">
+            </div>
+            <div>
+                <div class="div54" style="margin-top: 255px;">
+                    <p>日本樱花，国际5星，赠送2220大礼包，决无自费</p>
+                    <p>$<span style="font-size: 25px;">5399</span>/人起</p>
+                </div>
+                <img src="img/hot4.jpg" alt="" style="width: 570px;" class="div55">
+            </div>
+            <div>
+                <div class="div54" style="margin-top: 261px;">
+                    <p>斯里兰卡，国际5星，赠送2220大礼包，决无自费</p>
+                    <p>$<span style="font-size: 25px;">8799</span>/人起</p>
+                </div>
+                <img src="img/hot5.jpg" alt="" style="width: 570px;" class="div55">
+            </div>
+        </div>
+    </div>
+    <div id="div6" class="container">
+        <h3 style="text-align:center;">签&nbsp;&nbsp;证&nbsp;&nbsp;推&nbsp;&nbsp;荐</h3>
+        <p style="text-align:center;">Visa&nbsp;recommendation</p>
+        <p style="text-align:center;">热门：&nbsp;&nbsp;日本&nbsp;&nbsp;马来西亚&nbsp;&nbsp;
+            美国&nbsp;&nbsp;意大利&nbsp;&nbsp;加拿大&nbsp;&nbsp;新加坡</p>
+    </div>
+    <div id="div7" class="container">
+        <ul>
+            <li class="d71">
+                <div class="d72" style="margin-top: 505px;">
+                    <p>旅游签证&nbsp;&nbsp;$<span style="font-size: 25px;">8799</span>/人起</p>
+                </div>
+                <img src="img/visa1.jpg" alt="" style="width: 380px; height: 550px;">
+            </li>
+            <li class="d71">
+                <div class="d72" style="margin-top: 230px;">
+                    <p>旅游签证&nbsp;&nbsp;$<span style="font-size: 25px;">8799</span>/人起</p>
+                </div>
+                <img src="img/visa2.jpg" alt="">
+                <div class="d72" style="margin-top: 230px;">
+                    <p>旅游签证&nbsp;&nbsp;$<span style="font-size: 25px;">8799</span>/人起</p>
+                </div>
+                <img src="img/visa3.jpg" alt="">
+            </li>
+            <li class="d71">
+                <div class="d72" style="margin-top: 230px;">
+                    <p>旅游签证&nbsp;&nbsp;$<span style="font-size: 25px;">8799</span>/人起</p>
+                </div>
+                <img src="img/visa4.jpg" alt="">
+                <div class="d72" style="margin-top: 230px;">
+                    <p>旅游签证&nbsp;&nbsp;$<span style="font-size: 25px;">8799</span>/人起</p>
+                </div>
+                <img src="img/visa5.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+    <div id="div8" class="container">
+        <h4 class="d81" style="text-align:center;">查看更多&nbsp;&nbsp;></h4>
+    </div>
+    <div id="div9" class="container">
+        <img src="img/Bbanner.jpg" alt="">
+    </div>
+    <div id="div10" class="container">
+        <h3 class="d101">使命与愿景</h3>
+        <p class="d101" style="margin-top: 150px;">让旅游回归本质，体验纯粹旅游</p>
+        <img src="img/back.png" alt="" style="height: 300px; width: 100%;">
+    </div>
+    <div id="div11" class="container">
+        <div class="d111">
+            <img src="img/mission1.jpg" alt="" style="width: 50%;">
+            <div class="d112">
+                <h4 class="d113">服务理念及优势</h4>
+                <p style="white-space:normal; margin-top: 30px;">波尔多大剧院 , 
+                    波尔多交易所广场 , 
+                    拉菲·罗斯柴尔德酒庄 , 圣安德烈大主教教堂 
+                    , 圣凯瑟琳大街 , 梅多克(Médoc)酒庄 , 波尔多梅多克酒庄一日游 , 尼斯老城区 , </p>
+            </div>
+        </div>
+        <img src="img/mission2.jpg" alt="">
+        <div class="d114">
+            <ul>
+                <li class="d115">
+                    <img src="img/rorate.png" alt="" class="d116">
+                    <img src="img/icon1.png" alt="" class="d117">
+                    <p class="d118">品质行程</p>
+                    <p>旅游达人精心设计，基于口碑反复打磨</p>
+                </li>
+                <li class="d115">
+                    <img src="img/rorate.png" alt="" class="d116">
+                    <img src="img/icon2.png" alt="" class="d117">
+                    <p class="d118">品质消费</p>
+                    <p>不推自费</p>
+                </li>
+                <li class="d115">
+                    <img src="img/rorate.png" alt="" class="d116">
+                    <img src="img/icon3.png" alt="" class="d117">
+                    <p class="d118">品质小团</p>
+                    <p>独立成团不散拼</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="div12" class="container">
+        <ul>
+            <li>
+                <p><span style="font-size: 22px;">合作伙伴</span>&nbsp;&nbsp;&nbsp;&nbsp;携程网&nbsp;阿里飞猪&nbsp;去哪儿&nbsp;苏州旅游局</p>
+            </li>
+            <li>
+                <p><span style="font-size: 22px;">热门位置</span>&nbsp;&nbsp;&nbsp;&nbsp;波兰&nbsp;捷克&nbsp;斯洛伐克&nbsp;匈牙利&nbsp;德国&nbsp;
+                    奥地利&nbsp;瑞士&nbsp;列支敦士登&nbsp;
+                    爱沙尼亚&nbsp;拉脱维亚&nbsp;立陶宛&nbsp;白俄罗斯&nbsp;俄罗斯&nbsp;乌克兰&nbsp;摩尔多瓦</p>
+            </li>
+            <li>
+                <p><span style="font-size: 22px;">主题服务</span>&nbsp;&nbsp;&nbsp;&nbsp;海岛度假&nbsp;旅游冒险&nbsp;亲子乐园
+                    &nbsp;美食冒险&nbsp;都市生活&nbsp;海外游学&nbsp;邮轮度假&nbsp;蜜月摄影</p>
+            </li>
+            <li>
+                <p><span style="font-size: 22px;">友情链接</span>&nbsp;&nbsp;&nbsp;携程网&nbsp;龙旅行网&nbsp;同程旅游&nbsp;乐途旅游
+                    &nbsp;久游网&nbsp;全有网&nbsp;取土旅游&nbsp;芒果网&nbsp;山水旅游&nbsp;
+                节滤网&nbsp;叨叨网</p>
+            </li>
+        </ul>
+        <p style="text-align:center; margin-top: 130px;">苏ICP备14019690号、2014-2017&nbsp;&nbsp;@苏州樱花国际旅游有限公司版权所有</p>
+    </div>
+    
+    <style>
+        @media screen and (max-width:629px){
+            .container{
+                display: none;
+            }
+            .one{
+                text-align: center;
+                color: #fff;
+            }
+            .navbar1{
+                background-color: chocolate; 
+                border-radius: 10px;
+                color: #fff;
+                height: 40px;
+                width: 150px;
+                margin-left: 300px;
+                margin-top: 10px;
+                padding-top: 8px;
+            }
+            .tow{
+                width: 100%;
+                position: relative;
+            }
+            .tow1{
+                width: 100%;
+            }
+            .tow2{
+                position: absolute;
+                color: #fff;
+            }
+            .sousuo{
+            position:absolute;
+            background-color: #fff;
+            margin-top: 120px;
+            margin-left: 100px;
+            width: 388px;
+            height: 41px;
+            color: darkgrey;
+            border: 2px solid rgb(78, 73, 74);
+            border-radius: 10px;
+            flex-shrink: 1;
+            }
+            [class $="-1"]{
+                padding-top: 8px;
+            }
+            [class $="-4"]{
+                padding-top: 6px;
+            }
+            .sear-4{
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+            [class ^="sea"]{
+                float: left;
+                padding-left: 15px;
+                height: 37px;
+            }
+            .th1{
+                float: left;
+                width: 33.3%;
+                text-align: center;
+            }
+            .t2{
+                border: 2px solid grey;
+                border-radius: 10px;
+                width: 100px;
+                height: 30px;
+                padding-top: 3px;
+                margin-top: 50px;
+                margin-left: 40px;
+            }
+            .fo1{
+                position: absolute;
+                color: #fff;
+                background-color: rgba(36, 36, 39, 0.7);
+                width: 100%;
+                text-align: center;
+                margin-top: -70px;
+            }
+            .four{
+                position: relative;
+            }
+            .fi1{
+                border: 2px solid rgb(19, 16, 16);
+                border-radius: 10px;
+                width: 150px;
+                height: 35px;
+                padding-top: 8px;
+            }
+            .five{
+                text-align:center;
+                display:flex; 
+                justify-content:center;
+                align-items:center;
+            }
+            .six{
+                position: relative;
+                height: 560px;
+            }
+            .si2{
+                float: left;
+                width: 50%;
+                overflow:hidden;
+            }
+            .si1{
+                position: absolute;
+                color: #fff;
+                background-color: rgba(36, 36, 39, 0.7);
+                text-align: center;
+                width: 50%;
+                margin-top: -37px;
+            }
+            .se1{
+                border: 2px solid rgb(19, 16, 16);
+                border-radius: 10px;
+                width: 150px;
+                height: 35px;
+                padding-top: 8px;
+            }
+            .seven{
+                text-align:center;
+                display:flex; 
+                justify-content:center;
+                align-items:center;
+                height: 40px;
+            }
+            .eight{
+                margin-top: 20px;
+            }
+            .ei1{
+                float: right;
+                white-space:normal;
+                width: 50%;
+            }
+            .ei2{
+                text-align: center;
+                margin-left: 80px;
+                margin-top: 15px;
+            }
+            .ei3{
+                border-block-end-style: solid;
+                border-block-end-color: rgb(37, 34, 34);
+            }
+        }
+    </style>
+    <div class="one" id="tow">
+        <p></p>
+        <nav class="navbar navbar-default" > 
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-1">
+                    <span class="sr-only">导航开关</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="img/logo.png" alt="" class="navbar-brand">
+                <p class="navbar1">快速定制</p>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">首页</a></li>
+                    <li><a href="#">热门路线</a></li>
+                    <li><a href="#">签证推荐</a></li>
+                    <li><a href="#">使命愿景</a></li>   
+                </ul>   
+            </div>
+        </nav> 
+        </div>
+    </div>
+    <div class="tow" id="tow">
+        <div class="tow2">
+            <h3>悠游古欧州，遍揽德法瑞意</h3>
+            <p>全程升级热早+1晚五星级酒店</p>
+        </div>
+        <div class="sousuo">
+                <ul>
+                    <li class="sear-1"  style="background-color:  rgb(206, 201, 201); width: 33px; 
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;">
+                        <img src="img/position.png" alt="">
+                    </li>
+                    <li class="sear-1" style="background-color: rgb(206, 201, 201); width: 66px;">
+                        <p style="color: gray">目的地</p>
+                    </li>
+                    <li class="sear-1" style="width: 196px;">
+                        <p>&nbsp;&nbsp;|&nbsp;&nbsp;日本&nbsp;&nbsp;美国&nbsp;&nbsp;英国&nbsp;&nbsp;地中海</p>
+                    </li>
+                    <li style="background-color: chocolate; width: 89px;" class="sear-4">
+                        <img src="img/search.png" alt="">
+                    </li>
+                </ul>
+            </div>
+        <img src="img/banner.jpg" alt="" class="tow1">
+        
+    </div>
+    <div class="three" id="tow" style="height: 120px;">
+        <ul>
+            <li class="th1">
+                <img src="img/carH.png" alt="">
+            </li>
+            <li class="th1" style="text-align: left;">
+                <h4 style="color: blue;">机场接送&nbsp;&nbsp;省心省力</h4>
+                <p style="color: darkgrey;">提供上海、苏州、无锡等市</p>
+                <p style="color: darkgrey;">往返机场、码头接送服务、更有包车服务</p>
+            </li>
+            <li class="th1">
+                <div class="t2" style="color: darkgrey;">查看详情</div>
+            </li>
+        </ul>
+    </div>
+    <div id="tow" style="text-align: center; ">
+        <h4>热门线路</h4>
+    </div>
+    <div id="tow" class="four">
+        <div>
+            <img src="img/hot1.jpg" alt="" style="width: 100%;" >
+            <div class="fo1">
+                    <p>海南三亚五天四晚，纯玩，4晚红树林度假王国</p>
+                    <p>$<span style="font-size: 20px;">2580</span>/人起</p>
+            </div>
+        </div>
+        <div>
+            <img src="img/hot2.jpg" alt="" style="width: 100%;" >
+            <div class="fo1">
+                <p>德法意瑞欧洲四国，ABCD任意路线有您挑选</p>
+                <p>$<span style="font-size: 20px;">7999</span>/人起</p>
+            </div>
+        </div>
+    </div>
+    <div id="tow" class="five">
+        <h4 class="fi1" style="text-align:center;">查看更多&nbsp;&nbsp;></h4>
+    </div>
+    <div id="tow" style="text-align: center; ">
+        <h4>签证推荐</h4>
+    </div>
+    <div id="tow" class="six">
+        <ul>
+            <li class="si2">
+                <img src="img/visa1.jpg" alt="" class="si3">
+                <div class="si1">
+                    <p>旅游签证&nbsp;&nbsp;$<span style="font-size: 20px;">8799</span>/人起</p>
+                </div>
+                
+            </li>
+            <li class="si2">
+                <img src="img/visa2.jpg" alt="">
+                <div class="si1">
+                    <p>旅游签证&nbsp;&nbsp;$<span style="font-size: 20px;">8799</span>/人起</p>
+                </div>
+                <img src="img/visa3.jpg" alt="">
+                <div class="si1" >
+                    <p>旅游签证&nbsp;&nbsp;$<span style="font-size: 20px;">8799</span>/人起</p>
+                </div>
+                
+            </li>
+        </ul>
+    </div>
+    <div id="tow" class="seven">
+        <h4 class="se1" style="text-align:center;">查看更多&nbsp;&nbsp;></h4>
+    </div>
+    <p style="text-align: center;" id="tow"><span style="font-size: 20px;">使命与远景：</span>
+        让旅游回归本质体验纯粹旅游</p>
+    <div style="position: relative;" id="tow">
+        <img src="img/back.png" alt="" width="100%" style="position: relative;">
+        <img src="img/mission1.jpg" alt="" style="position: absolute; top: -10px;left: 45px;">
+    </div>
+    <h4 style="text-align: center;" id="tow">--服务理念--</h4>
+    <p  style="text-align: center;" id="tow">同其他有形产品一样，也强调产品要能满足不同的消费者需求。消费者需求在有形产品
+        中可以转变成具体的产品特征和规格，
+        同时这些产品特征和规格也是产品生产、产品完善和产品营销的基础。但是这些具体的规格对于服务产品来说犹如空中楼阁一般。
+        因而服务企业需要明确"服务产品"的本质或"服务理念"。</p>
+    <img src="img/mission2.jpg" alt="" width="100%" id="tow">
+    <h4 style="text-align: center;" id="tow">--服务优势--</h4>
+    <div id="tow" class="eight">
+        <ul>
+            <li class="ei3">
+                <img src="img/icon11.png" alt="" class="ei2">
+                <p class="ei1">要平凡，但不平庸;要大胆，但不大意;要敢说，但不空说;要多思，但不乱思;要大干，
+                    但不蛮干;要谦让</p>
+            </li>
+            <li class="ei3">
+                <img src="img/icon22.png" alt="" class="ei2">
+                <p class="ei1">为了您的使用，我们不懈努力</p>
+            </li>
+            <li class="ei3">
+                <img src="img/icon33.png" alt="" class="ei2">
+                <p class="ei1">在保证质量的前提下以超一流的速度为您提供服务。</p>
+            </li>
+        </ul>
+    </div>
+    <div style="background-color: black; color:blanchedalmond; height: 150px; padding-top: 30px;" id="tow">
+        <p style="text-align: center;">苏ICP备14019690号、2014-2017</p>
+        <p style="text-align: center;">@苏州樱花国际旅游有限公司版权所有</p>
+        <p style="text-align: center;">技术支持：杭州联橙科技</p>
+    </div>
+</body>
+<script>
+
+$(function(){
+    var i=0;
+    var timer=null;
+    $('.banner').hover(function(){
+        $('.btn').show();
+    },function(){
+        $('.btn').hide();
+    });
+    var firstimg=$('.img li').first().clone(); 
+    $('.img').append(firstimg).width($('.img li').length*($('.img img').width()));
+   
+    timer=setInterval(function(){
+        i++;
+        if (i==$('.img li').length) {
+            i=1;
+            $('.img').css({left:0});
+        }
+        
+        $('.img').stop().animate({left:-i*banner.offsetWidth},446);
+    },2000);
+    
+    $('.banner').hover(function(){
+        clearInterval(timer);
+    },function(){
+        timer=setInterval(function(){
+            i++;
+            if (i==$('.img li').length) {
+                i=1;
+                $('.img').css({left:0});
+            };
+           
+            $('.img').stop().animate({left:-i*banner.offsetWidth},446);
+        },2000)
+    });
+    
+    $('.prev').click(function(){
+        i--;
+        if (i==-1) {
+            i=$('.img li').length-1;
+            $('.img').css({left:-($('.img li').length-1)*banner.offsetWidth});
+        }
+        $('.img').stop().animate({left:-i*banner.offsetWidth},446);
+    });
+ 
+    $('.next').click(function(){
+        i++;
+        if (i==$('.img li').length) {
+            i=1; 
+            $('.img').css({left:0});
+        };
+        $('.img').stop().animate({left:-i*banner.offsetWidth},446);
+    });
+})
+</script>
+</html>
